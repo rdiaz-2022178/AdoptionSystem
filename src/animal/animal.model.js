@@ -10,8 +10,10 @@ const animalSchema = mongoose.Schema({
         require: true
     },
     keeper:{
-        type: Object,
+        type: Schema.ObjectId,
         require: true
     }
 
 })
+
+export default mongoose.model('animal', animalSchema)
