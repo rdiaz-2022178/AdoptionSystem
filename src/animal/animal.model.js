@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import ser from '../user/user.model.js'
 
 const animalSchema = mongoose.Schema({
     name: {
@@ -10,7 +11,8 @@ const animalSchema = mongoose.Schema({
         require: true
     },
     keeper:{
-        type: Schema.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         require: true
     }
 
