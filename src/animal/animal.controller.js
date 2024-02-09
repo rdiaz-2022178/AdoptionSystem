@@ -17,7 +17,10 @@ export const registerAnimal = async (req, res) => {
 
 export const findAnimal = async (req, res) => {
     try {
-
+        let data = req.params
+        let find = await Animal.find(data)
+        return res.send({ message: 'animals find' })
+        console.log(find)
     } catch (error) {
         console.error(error)
         return res.status(500).send({ message: 'Error ', err: error.errors })
@@ -54,3 +57,14 @@ export const deleteA = async (req, res) => {
         return res.status(500).send({ message: 'error deleting' })
     }
 }
+
+export const searchAnimal = async (req, res) => {
+    try {
+        let { data } = req.params
+        let search = await Animal.search(data)
+        return res.send({ message: 'animal find' })
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send({ message: 'the animal could not be found' })
+    }
+} 
